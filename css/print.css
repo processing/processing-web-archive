@@ -1,0 +1,27 @@
+#header {
+    width: auto !important;
+    background: none !important;
+    height: auto !important;
+}
+#header *, .navBar, #navigation {
+    display: none !important;
+}
+#header:after {
+    content: "Processing 2.0";
+    font-size: 30pt !important;
+    color: #0C2033 !important;
+    line-height: normal;
+}
+
+#container, #container>* {
+    width: auto !important;
+}
+.content {
+    float: none !important;
+}
+.ref-item ~ br {
+    display: none;
+}
+#footer {
+    padding: 10px !important;
+}
