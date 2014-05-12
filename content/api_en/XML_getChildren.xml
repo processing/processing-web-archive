@@ -42,6 +42,8 @@ void setup() {
 
 <description><![CDATA[
 Returns all of the element's children as an array of XML objects. When the <b>name</b> parameter is specified, then it will return all children that match that name or path. The path is a series of elements and sub-elements, separated by slashes.
+<br />
+Calling <b>getChildren</b> without the <b>name</b> parameter often returns text nodes. Text nodes (those without <b>&lt;&gt;</b> angle brackets) cause a <b>NullPointerException</b> to be thrown when you try to look at their attributes, since it's impossible for them to have attributes.
 ]]></description>
 
 </root>
