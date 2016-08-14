@@ -1,0 +1,248 @@
+PVector[] data1 = {
+new PVector(0.1793125,0.823178333333333),
+new PVector(0.170055,0.966731666666667),
+new PVector(0.2230925,0.744116666666667),
+new PVector(0.143225,0.873681666666667),
+new PVector(0.201715,0.614943333333333),
+new PVector(0.1972675,0.75874),
+new PVector(0.1840425,0.681338333333333),
+new PVector(0.1780225,0.757771666666667),
+new PVector(0.220795,0.571036666666667),
+new PVector(0.23286,0.573615),
+new PVector(0.174835,0.673391666666667),
+new PVector(0.1837125,0.59159),
+new PVector(0.1879425,0.55442),
+new PVector(0.1186075,0.811626666666667),
+new PVector(0.1696925,0.583403333333333),
+new PVector(0.1805375,0.584933333333333),
+new PVector(0.1582175,0.69596),
+new PVector(0.178105,0.660563333333333),
+new PVector(0.234745,0.514865),
+new PVector(0.1835475,0.546716666666667),
+new PVector(0.18831,0.698458333333333),
+new PVector(0.152185,0.69467),
+new PVector(0.15144,0.612385),
+new PVector(0.1743375,0.538771666666667),
+new PVector(0.2153225,0.391301666666667),
+new PVector(0.2008375,0.542075),
+new PVector(0.17799,0.46419),
+new PVector(0.1665175,0.576746666666667),
+new PVector(0.213485,0.582065),
+new PVector(0.17857,0.501601666666667),
+new PVector(0.19649,0.382871666666667),
+new PVector(0.181415,0.41851),
+new PVector(0.19226,0.420041666666667),
+new PVector(0.1313875,0.602908333333333),
+new PVector(0.1607325,0.523121666666667),
+new PVector(0.1764375,0.373395),
+new PVector(0.1751675,0.523846666666667),
+new PVector(0.1878625,0.412338333333333),
+new PVector(0.1981275,0.376456666666667),
+new PVector(0.155175,0.440595),
+new PVector(0.16961,0.44132),
+new PVector(0.1646325,0.396205),
+new PVector(0.1435375,0.508278333333333),
+new PVector(0.09536,0.579635),
+new PVector(0.15078,0.432891666666667),
+new PVector(0.2289925,0.0938816666666666),
+new PVector(0.1594925,0.306215),
+new PVector(0.1456375,0.342901666666667),
+new PVector(0.12755,0.416758333333333),
+new PVector(0.11596,0.332941666666667)
+};
+
+PVector[] data2 = {
+new PVector(0.660695,0.649938333333333),
+new PVector(0.6809975,0.60708),
+new PVector(0.6832625,0.486576666666667),
+new PVector(0.6276775,0.588448333333333),
+new PVector(0.698125,0.557565),
+new PVector(0.6529575,0.590705),
+new PVector(0.635335,0.505598333333333),
+new PVector(0.6275125,0.543575),
+new PVector(0.6568575,0.463788333333333),
+new PVector(0.606665,0.603311666666667),
+new PVector(0.6024825,0.488981666666667),
+new PVector(0.6088825,0.63431),
+new PVector(0.680005,0.337838333333333),
+new PVector(0.652345,0.25971),
+new PVector(0.67868,0.218141666666667),
+new PVector(0.5840675,0.473091666666667),
+new PVector(0.6049475,0.467643333333333),
+new PVector(0.5694675,0.427491666666667),
+new PVector(0.5923025,0.427653333333333),
+new PVector(0.591095,0.50433),
+new PVector(0.581985,0.193385),
+new PVector(0.5969625,0.460746666666667),
+new PVector(0.65476,0.389871666666667),
+new PVector(0.56259,0.646916666666667),
+new PVector(0.564275,0.489003333333333),
+new PVector(0.6075925,0.568903333333333),
+new PVector(0.5231625,0.362376666666667),
+new PVector(0.5352275,0.364955),
+new PVector(0.5490825,0.328268333333333),
+new PVector(0.55669,0.396918333333333),
+new PVector(0.4941275,0.316051666666667),
+new PVector(0.513325,0.468518333333333),
+new PVector(0.5332125,0.433121666666667),
+new PVector(0.537445,0.395951666666667),
+new PVector(0.495135,0.423725),
+new PVector(0.551085,0.465891666666667),
+new PVector(0.5240525,0.273676666666667),
+new PVector(0.51015,0.461861666666667),
+new PVector(0.54209,0.35132),
+new PVector(0.5594325,0.195178333333333),
+new PVector(0.5190775,0.22856),
+new PVector(0.50342,0.226788333333333),
+new PVector(0.541345,0.269035),
+new PVector(0.5407025,0.305398333333333),
+new PVector(0.5326675,0.45),
+new PVector(0.5016675,0.320343333333333),
+new PVector(0.4347075,0.231771666666667),
+new PVector(0.4839275,0.038865),
+new PVector(0.447175,0.149165),
+new PVector(0.4289225,0.178146666666667)
+};
+
+
+
+
+
+PVector[] data3 = {
+new PVector(0.836175,0.956315),
+new PVector(0.85388,0.94421),
+new PVector(0.9828675,0.50309),
+new PVector(0.922625,0.571868333333333),
+new PVector(0.9082025,0.648866666666667),
+new PVector(0.9013625,0.639068333333333),
+new PVector(0.855285,0.54505),
+new PVector(0.8358125,0.572985),
+new PVector(0.82959,0.833768333333333),
+new PVector(0.78504,0.675098333333333),
+new PVector(0.771815,0.597696666666667),
+new PVector(0.82164,0.597646666666667),
+new PVector(0.7972025,0.65819),
+new PVector(0.7701225,0.617475),
+new PVector(0.777375,0.619811666666667),
+new PVector(0.7747675,0.572843333333333),
+new PVector(0.7976175,0.650728333333333),
+new PVector(0.792675,0.37639),
+new PVector(0.7480525,0.676165),
+new PVector(0.79386,0.60666),
+new PVector(0.79143,0.68229),
+new PVector(0.772815,0.567233333333333),
+new PVector(0.7724225,0.551263333333333),
+new PVector(0.698965,0.620363333333333),
+new PVector(0.71461,0.544413333333333),
+new PVector(0.7218625,0.54675),
+new PVector(0.7337525,0.426731666666667),
+new PVector(0.7319125,0.617495),
+new PVector(0.7608325,0.467446666666667),
+new PVector(0.771675,0.468978333333333),
+new PVector(0.6963575,0.573395),
+new PVector(0.76903,0.651233333333333),
+new PVector(0.7100475,0.491836666666667),
+new PVector(0.6944525,0.416286666666667),
+new PVector(0.6625,0.449105),
+new PVector(0.7298975,0.685661666666667),
+new PVector(0.728195,0.344203333333333),
+new PVector(0.67139,0.445028333333333),
+new PVector(0.7002225,0.675701666666667),
+new PVector(0.648905,0.51118),
+new PVector(0.6753825,0.359036666666667),
+new PVector(0.68432,0.203458333333333),
+new PVector(0.634885,0.502991666666667),
+new PVector(0.6401125,0.495771666666667),
+new PVector(0.6688775,0.378573333333333),
+new PVector(0.7140575,0.423156666666667),
+new PVector(0.6688775,0.378573333333333),
+new PVector(0.6837875,0.298061666666667),
+new PVector(0.64264,0.400658333333333),
+new PVector(0.55353,0.228695)
+};
+
+PVector[][] data = new PVector[3][];
+color[] dataColors = new color[3];
+String[] dataLabels = new String[3];
+
+float blendTimer = 20;  // smoothly blends between the data sets
+float startTimer = 50; // how long the blend should last (in frames)
+int mode = 0;          // which data set to display
+int pmode = 0;         // previous mode
+
+void setup()
+{
+  size(600,600);
+  smooth();
+  data[0] = data1;
+  dataColors[0] = color(255,150,5);
+  dataLabels[0] = "Setosa";
+  data[1] = data2;
+  dataColors[1] = color(5,150,150);
+  dataLabels[1] = "Versicolor";
+  data[2] = data3;
+  dataColors[2] = color(5,150,10);
+  dataLabels[2] = "Virginica";
+}
+
+void draw()
+{
+  background(255);
+  int bd = 15;   // border space
+  stroke(0);
+  fill(0);
+  stroke(180);
+  line( bd, 0.5*height, width-bd, 0.5*height );
+  textAlign(CENTER,TOP);
+  fill(100);
+  text( "Comp.2 [Sepal Size] 22.85%", width/2, height-bd );
+  stroke(180);
+  line( 0.5*width, bd, 0.5*width, height-bd ); 
+  pushMatrix();
+    rotate( radians(-90) );
+    fill(100);
+    text( "Comp.1 [Petal Size] 72.96%" , -width/2, 0 );
+  popMatrix();
+  
+ 
+  stroke( 0, map(blendTimer, 0, startTimer, 255, 0) );
+  fill( dataColors[ mode ], map(blendTimer, 0, startTimer, 255, 0) );
+  for( PVector d : data[ mode ] ) 
+  { noStroke();
+    ellipse( d.x*width, d.y*height, 5, 5 ); }
+  
+  if( blendTimer > 0 )
+  {
+    stroke( 0, map(blendTimer, 0, startTimer, 0, 255) );
+    fill( dataColors[ pmode ], map(blendTimer, 0, startTimer, 0, 255) );
+    for( PVector d : data[ pmode ] )  
+    { noStroke();
+      ellipse( d.x*width, d.y*height, 5, 5 ); }
+  }
+  blendTimer = max( 0, blendTimer-1 );
+  
+ 
+  noStroke();
+  for( int i=0; i<data.length; i++ )
+  { 
+    fill( dataColors[i] );
+    ellipse( width - (1.5)*40, 110-i*33, 70, 30 );
+    fill( 255 );
+    textAlign(CENTER,CENTER);
+    text( dataLabels[i], width - (1.5)*40, 110-i*33 );
+  }
+}
+
+void mousePressed()
+{
+  // figure out if mouse is over any of the data selector buttons
+  for( int i=0; i<data.length; i++ )
+  { 
+    if( dist(mouseX, mouseY, width - (1.5)*40, 110-i*33) <= 30 )
+    { 
+      pmode = mode; // remember the previous mode
+      mode = i;  // change the mode accordingly
+      blendTimer = startTimer;
+    }
+  }
+}
