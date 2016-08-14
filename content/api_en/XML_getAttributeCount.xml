@@ -37,6 +37,7 @@ void setup() {
 
 <description><![CDATA[
 Counts the specified element's number of attributes, returned as an int.
+Calling ths on a text node results in a <b>NullPointerException</b>. Text nodes are often returned when calling <b>getChildren()</b> without arguments.
 ]]></description>
 
 </root>
