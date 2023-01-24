@@ -22,6 +22,7 @@ mkdir(DISTDIR.'tools/images', 0755);
 copydirr(CONTENTDIR.'api_en/tools/images', DISTDIR.'tools/images');
 
 // Copy file for the contributed Tools
+require_once('./contributions.php');
 copy(CONTENTDIR."static/tools.html", DISTDIR.'tools/tools.html');
 
 

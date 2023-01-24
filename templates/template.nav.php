@@ -7,12 +7,11 @@ $pages = array(
     'Exhibition'      => array('/exhibition/', 1), 
     
     'Learning'        => array('/learning/', 1), 
-    	'Tutorials'   => array('/learning/', 2),  
-    	'Basics'      => array('/learning/basics/', 2),  
-    	'Topics'      => array('/learning/topics/', 2), 
+    	'Tutorials'   => array('/tutorials/', 2),  
+    	'Examples'      => array('/examples/', 2),  
      #   '3D'          => array('/learning/3d/', 2),  
      #   'Library'     => array('/learning/library/', 2),  
-    'Books'       	  => array('/learning/books/', 2),
+    'Books'       	  => array('/books/', 2),
             
     'Reference'       => array('/reference/', 1),
         'Language'    => array('/reference/', 2),
@@ -26,9 +25,9 @@ $pages = array(
     'Shop'            => array('/shop/', 1),
         
     'About'           => array('/about/', 1),
-        'Overview'    => array('/about/', 2),
-        'People'      => array('/about/people/', 2),
-        'Foundation'     => array('/about/foundation/', 2),
+        'Overview'    => array('/overview/', 2),
+        'People'      => array('/people/', 2),
+        'Foundation'     => array('/foundation/', 2),
     
     'FAQ'             => array('http://wiki.processing.org/w/FAQ', 1),
     
@@ -64,21 +63,22 @@ function navigation($section = '')
 	    $html .= "\t\t\t\t\t" . l('Environment', $section == 'Environment') . "<br><br>\n";
 
 	    $html .= "\t\t\t\t\t" . l('Tutorials', $section == 'Tutorials') . "<br>\n";
-	    $html .= "\t\t\t\t\t" . l('Basics', $section == 'Basics') . "<br>\n";
-	    $html .= "\t\t\t\t\t" . l('Topics', $section == 'Topics') . "<br>\n";
+	    $html .= "\t\t\t\t\t" . l('Examples', $section == 'Examples') . "<br>\n";
 	    $html .= "\t\t\t\t\t" . l('Books', $section == 'Books') . "<br><br>\n";
 	    
-	    $html .= "\t\t\t\t\t" . l('Overview', $section == 'About') . "<br> \n";
+	    $html .= "\t\t\t\t\t" . l('Overview', $section == 'Overview') . "<br> \n";
 	    $html .= "\t\t\t\t\t" . l('People', $section == 'People') . "<br>\n";
 	    $html .= "\t\t\t\t\t" . l('Foundation', $section == 'Foundation') . "<br><br>\n";
 
 	    $html .= "\t\t\t\t\t" . l('Shop', $section == 'Shop') . "<br><br>\n";
 	       
-	    $html .= "\t\t\t\t\t" . "<a href=\"https://twitter.com/processingOrg\"" . 'class="outward"' . "><span>&raquo;</span>Twitter</a><br> \n";
 	    $html .= "\t\t\t\t\t" . "<a href=\"http://forum.processing.org\"" . 'class="outward"' . "><span>&raquo;</span>Forum</a><br> \n";
-	    $html .= "\t\t\t\t\t" . "<a href=\"http://wiki.processing.org\"" . 'class="outward"' . "><span>&raquo;</span>Wiki</a><br> \n";
-	    $html .= "\t\t\t\t\t" . "<a href=\"https://github.com/processing/processing-web/issues?state=open\"" . 'class="outward"' . "><span>&raquo;</span>Issues</a><br> \n";
-	    $html .= "\t\t\t\t\t" . "<a href=\"https://github.com/processing\"" . 'class="outward"' . "><span>&raquo;</span>Source</a><br> \n";
+        $html .= "\t\t\t\t\t" . "<a href=\"https://github.com/processing\"" . 'class="outward"' . "><span>&raquo;</span>GitHub</a><br> \n";
+        $html .= "\t\t\t\t\t" . "<a href=\"http://wiki.processing.org/w/Report_Bugs\"" . 'class="outward"' . "><span>&raquo;</span>Issues</a><br> \n";
+        $html .= "\t\t\t\t\t" . "<a href=\"http://wiki.processing.org\"" . 'class="outward"' . "><span>&raquo;</span>Wiki</a><br> \n";
+        $html .= "\t\t\t\t\t" . "<a href=\"http://wiki.processing.org/w/FAQ\"" . 'class="outward"' . "><span>&raquo;</span>FAQ</a><br> \n";
+        $html .= "\t\t\t\t\t" . "<a href=\"https://twitter.com/processingOrg\"" . 'class="outward"' . "><span>&raquo;</span>Twitter</a><br> \n";
+        $html .= "\t\t\t\t\t" . "<a href=\"https://www.facebook.com/page.processing\"" . 'class="outward"' . "><span>&raquo;</span>Facebook</a><br> \n";
     
     $html .= "\t\t\t\t</div>\n";
 
@@ -111,12 +111,12 @@ function short_nav($section)
 function local_nav($section, $rel_path='')
 {
     $html  = "\t\t\t".'<div id="navigation">'."\n";
-    $html .= "\t\t\t\t".'<div class="navBar" id="mainnav_noSub">'."\n";
+    $html .= "\t\t\t\t".'<div class="navBar" id="mainnav">'."\n";
 
-    $html .= "\t\t\t\t\t<a href=\"{$rel_path}index.html\"" . ($section == 'Language' ? ' class="active"' : '') . ">Language</a> (";
-    $html .= "<a href=\"{$rel_path}alpha.html\"" . ($section == 'A-Z' ? ' class="active"' : '') . ">A-Z</a>) \\ \n";
-    $html .= "\t\t\t\t\t<a href=\"{$rel_path}libraries/index.html\"" . ($section == 'Libraries' ? ' class="active"' : '') . ">Libraries</a> \\ \n";
-    $html .= "\t\t\t\t\t<a href=\"{$rel_path}tools/index.html\"" . ($section == 'Tools' ? ' class="active"' : '') . ">Tools</a> \\ \n";
+    $html .= "\t\t\t\t\t<a href=\"{$rel_path}index.html\"" . ($section == 'Language' ? ' class="active"' : '') . ">Language</a><br> \n";
+    #$html .= "<a href=\"{$rel_path}alpha.html\"" . ($section == 'A-Z' ? ' class="active"' : '') . ">A-Z</a>)<br> \n";
+    $html .= "\t\t\t\t\t<a href=\"{$rel_path}libraries/index.html\"" . ($section == 'Libraries' ? ' class="active"' : '') . ">Libraries</a><br> \n";
+    $html .= "\t\t\t\t\t<a href=\"{$rel_path}tools/index.html\"" . ($section == 'Tools' ? ' class="active"' : '') . ">Tools</a><br> \n";
     $html .= "\t\t\t\t\t<a href=\"{$rel_path}environment/index.html\"" . ($section == 'Environment' ? ' class="active"' : '') . ">Environment</a>\n";
     
     $html .= "\t\t\t\t</div>\n";
@@ -126,30 +126,6 @@ function local_nav($section, $rel_path='')
 }
 
 
-// Removed 22 Sep 2011  --CR
-
-/**
-
-function reference_nav($current = '')
-{
-    global $lang;
-    global $translation;
-    global $LANGUAGES;
-    $tr = $translation->navigation;
-    
-    $html = "<a href=\"index.html\">$tr[abridged]</a>";
-    if ($LANGUAGES[$lang][2]) {
-        $html .= " (<a href=\"index_alpha.html\">$tr[az]</a>)";
-    }
-    $html .= " \ <a href=\"index_ext.html\">$tr[complete]</a>";
-    if ($LANGUAGES[$lang][2]) {
-        $html .= " (<a href=\"index_alpha_ext.html\">$tr[az]</a>)";
-    }
-    $html .= " \ <a href=\"changes.html\">$tr[changes]</a>";
-    return $html;
-}
-
-*/
 
 function language_nav($current)
 {

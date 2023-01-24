@@ -65,7 +65,7 @@
 <!-- END CR EDITING, 28 FEB 2013 -->
 
 <p>
-The image below depicts a diagram of the graphics pipeline, and how the input of the pipeline is related to the function calls in the sketch. There are several additional stages in a typical pipeline, but we don't show them here in the sake of clarity. Furthermore, Processing follows the specification set by <a href="http://www.khronos.org/opengles/">OpenGL ES</a>, which is the version of OpenGL used in mobile devices and, through <a href="<a href="http://www.khronos.org/opengles/">">WebGL</a>, also in browsers. The programming model in OpenGL ES is simpler and doesn't include all the stages that are present in desktop OpenGL. On the desktop, OpenGL ES is in fact subset of OpenGL, so this choice ensures that GLSL shaders written to work with Processing can be used across different platforms with minimal changes. As a downside, advanced features of OpenGL desktop are not (directly) accessible through the Processing API, however there are several other toolkits that can be used for more sophisticated graphics programming.
+The image below depicts a diagram of the graphics pipeline, and how the input of the pipeline is related to the function calls in the sketch. There are several additional stages in a typical pipeline, but we don't show them here in the sake of clarity. Furthermore, Processing follows the specification set by <a href="http://www.khronos.org/opengles/">OpenGL ES</a>, which is the version of OpenGL used in mobile devices and, through <a href="http://www.khronos.org/opengles/">WebGL</a>, also in browsers. The programming model in OpenGL ES is simpler and doesn't include all the stages that are present in desktop OpenGL. On the desktop, OpenGL ES is in fact subset of OpenGL, so this choice ensures that GLSL shaders written to work with Processing can be used across different platforms with minimal changes. As a downside, advanced features of OpenGL desktop are not (directly) accessible through the Processing API, however there are several other toolkits that can be used for more sophisticated graphics programming.
 </p>
 
 <p><img src="imgs/pipeline.png"></p>
@@ -107,7 +107,7 @@ function vertexShader(vertex) {
 </pre>
 
 <p>
-While for the fragment shader, we would have a loop over the visible, interpolated fragments:
+Similarly, we could imagine the fragment shader as a "function" that is called inside the loop that runs over all the visible, interpolated fragments. Therefore we could write in pseudo-code:
 </p>
 
 <pre>
@@ -261,7 +261,7 @@ When setting a shader with the <em>shader()</em> function, if no type argument i
 </p>
 
 <pre>
-<span style="color: #006699;"><b>draw</b></span>() {
+<span style="color: #996633;">void</span> <span style="color: #006699;"><b>draw</b></span>() {
 &nbsp;&nbsp;<span style="color: #006699;">shader</span>(pointShader, <span style="color: #666666;">POINTS</span>);
 &nbsp;&nbsp;<span style="color: #006699;">shader</span>(lineShader, <span style="color: #666666;">LINES</span>);
 &nbsp;&nbsp;<span style="color: #006699;">shader</span>(polyShader); <span style="color: #7E7E7E;">// same as shader(polyShader, TRIANGLE);</span>
@@ -309,7 +309,7 @@ Together with the POINT and LINE shaders mentioned earlier, we end up having 6 d
 </p>
 
 <p>
-Processing needs to use the right type of shader when drawing a piece of geometry, and by default it picks the correct shader by checking whether the geometry about to be rendered has lights or textures associated to it and then enabling the appropriate shader. When we set our own custom shader, we need to make sure that it belongs to the correct type to handle the subsequent drawing calls. For example, if simpleShader below is of type COLOR, then the following code will run without problems:
+Processing needs to use the right type of shader when drawing a piece of geometry, and by default it picks the correct shader by checking whether the geometry about to be rendered has lights or textures associated to it and then enabling the appropriate shader. When we set our own custom shader, we need to make sure that it belongs to the correct type to handle the subsequent drawing calls. For example, if simpleShader below is of type COLOR, then in the following code the rectangle will be renderer using simpleShader:
 </p>
 
 <pre>
@@ -319,7 +319,7 @@ Processing needs to use the right type of shader when drawing a piece of geometr
 <span style="color: #006699;">rect</span>(0, 0, 100, 100);
 </pre>
 
-<p>However, if we try to do:</p>
+<p>However, if we do:</p>
 
 <pre>
 <span style="color: #006699;">shader</span>(simpleShader);
@@ -329,11 +329,11 @@ Processing needs to use the right type of shader when drawing a piece of geometr
 </pre>
 
 <p>
-then Processing will print the warning <em>"Your shader cannot be used to render lit geometry, using default shader instead."</em>, but will still render the lit geometry by using its own default LIGHT shader instead the one provided in the <em>shader()</em> call.
+then Processing will simply ignore simpleShader and will render the lit rectangle with its own default LIGHT shader.
 </p>
 
 <p>
-The type of a shader must be specified inside the GLSL code, either in the vertex shader or the fragment shader (or both), by using a #define line, which are the following:
+The type of a shader can be specified inside the GLSL code, either in the vertex shader or the fragment shader (or both), by using a #define line, which are the following:
 </p>
 
 <ul>
@@ -344,6 +344,10 @@ The type of a shader must be specified inside the GLSL code, either in the verte
 <li>#define PROCESSING_TEXTURE_SHADER for TEXTURE shaders</li>
 <li>#define PROCESSING_TEXLIGHT_SHADER for TEXLIGHT shaders</li>
 </ul>
+
+<p>
+These defines are in fact hints for the renderer, and could be absent from the shader code altogether. This is convenient for more advanced applications where the data used by the shader is not necessarily determined by the texture/lighting state of the scene, but we will leave the discussion of this functionality for a future tutorial.
+</p>
 
 <p>In the next sections we will describe each type of shader in detail.</p>
 
@@ -367,7 +371,7 @@ We will go through the different types of shaders available in Processing and ex
 }
 
 <span style="color: #996633;">void</span> <span style="color: #006699;"><b>draw</b></span>() {    
-&nbsp;&nbsp;<span style="color: #006699;">background</span>(0);  
+&nbsp;&nbsp;<span style="color: #006699;">background</span>(0);
 &nbsp;&nbsp;<span style="color: #006699;">translate</span>(<span style="color: #FF6699;">width</span>/2, <span style="color: #FF6699;">height</span>/2);
 &nbsp;&nbsp;<span style="color: #006699;">rotateY</span>(angle);  
 &nbsp;&nbsp;<span style="color: #006699;">shape</span>(can);  
@@ -440,6 +444,22 @@ void main() {
 </table>
 
 <p>
+Now, we need to make two changes to our main program to make use of our new shader. At the end of our setup function we need to add
+</p>
+
+<pre>&nbsp;&nbsp;colorShader&nbsp;=&nbsp;<span style="color: #006699;">loadShader</span>(<span style="color: #7D4793;">&quot;colorfrag.glsl&quot;</span>, <span style="color: #7D4793;">&quot;colorvert.glsl&quot;</span>);</pre> 
+
+<p>
+to load the shader files. Then, right after background(), add
+</p>
+
+<pre>&nbsp;&nbsp;<span style="color: #006699;">shader</span>(colorShader);</pre>
+
+<p>
+to draw the can using our shader.
+</p>
+
+<p>
 The type of shader is indicated here with the define in the vertex shader, but it could also be in the fragment shader. In this example, there is only one uniform variable, <em>transform,</em> which is a 4x4 matrix holding the product of the projection and the modelview matrices. The multiplication of a vertex in world coordinates by the <em>transform</em> matrix gives the <a href="http://www.songho.ca/opengl/gl_transform.html">clip coordinates</a>. The <em>vertex</em> and <em>color</em> attributes hold the position and color of the input vertex, respectively. The input color is copied without any modification to the <em>vertColor</em> varying, which passes the value down to the fragment shader. The fragment shader is nothing more than a pass-through shader since the color is sent to the output without any further modifications. The uniform <em>transform</em> and the attributes <em>vertex</em> and <em>color</em> are automatically set by Processing.
 </p>
 
@@ -450,7 +470,7 @@ We can do some simple color manipulation by doing the following change in the fr
 <pre>gl_FragColor = vec4(vec3(1) - vertColor.xyz, 1);</pre>
 
 <p>
-This will show on the screen the invert of the input color. So for instance, if we add <em>sh.fill(255, 255, 0)</em> right after <em>sh.beginShape(QUAD_STRIP)></em> then the cylinder should be painted blue.
+This will show on the screen the invert of the input color. So for instance, if we add <em>sh.fill(255, 255, 0)</em> right after <em>sh.beginShape(QUAD_STRIP)</em> then the cylinder should be painted blue.
 </p>
 
 <h3>Texture shaders</h3>
@@ -579,7 +599,7 @@ Lighting a 3D scene involves placing one or more light sources in the space, and
 <p><img src="imgs/lightmodel.png"></p>
 
 <p>
-Using the same geometry from the previous examples, we can now write a simple shader to render the scene with a single point light. In order to do so, we need some extra uniform variables in the vertex shader: <em>lightPosition</em>, which holds the position of the light source, and <em>normalMatrix</em>, which is a 4x4 matrix to convert the normal vector to the appropriate coordinates to perform the <a href="http://www.lighthouse3d.com/tutorials/glsl-tutorial/the-normal-matrix/">lighting calculations</a>.
+Using the same geometry from the previous examples, we can now write a simple shader to render the scene with a single point light. In order to do so, we need some extra uniform variables in the vertex shader: <em>lightPosition</em>, which holds the position of the light source, and <em>normalMatrix</em>, which is a 3x3 matrix to convert the normal vector to the appropriate coordinates to perform the <a href="http://www.lighthouse3d.com/tutorials/glsl-tutorial/the-normal-matrix/">lighting calculations</a>.
 </p>
 
 <table>
@@ -879,26 +899,26 @@ precision mediump float;
 precision mediump int;
 #endif
 
-uniform sampler2D textureSampler;
+uniform sampler2D texture;
 
 varying vec4 vertColor;
 varying vec3 ecNormal;
 varying vec3 lightDir;
-varying vec4 vertTexcoord;
+varying vec4 vertTexCoord;
 
 void main() {
   vec3 direction = normalize(lightDir);
   vec3 normal = normalize(ecNormal);
   float intensity = max(0.0, dot(direction, normal));
   vec4 tintColor = vec4(intensity, intensity, intensity, 1) * vertColor;
-  gl_FragColor = texture2D(textureSampler, vertTexcoord.st) * tintColor;
-}  
+  gl_FragColor = texture2D(texture, vertTexCoord.st) * tintColor;
+}
 </pre>
 </tr></td>
 </table>
 
 <p>
-Note that a texlight cannot be used to render a scene only with textures or only with lights, in those cases either a texture of light shader will be needed.
+Note that a texlight cannot be used to render a scene only with textures or only with lights, in those cases either a texture or light shader will be needed.
 </p>
 
 <h3>Image post-processing effects</h3>
@@ -1077,7 +1097,7 @@ The output of these post-processing effects are displayed in the following image
 
 <h3>Putting all together</h3>
 
-<p>In all of the examples we have seen so far, only one shader is used throughout the execution of the entire sketch. However, we can load and use as many shaders as we need. At each given time, one shader will be selected and running, but we can change the selected shader using the <em>shader()</em> function, and restore the default shaders with <em>resetShader()</em>. The following example combines all the shaders from the previous sections, so the can be enabled/disabled using the keyboard:</p>
+<p>In all of the examples we have seen so far, only one shader is used throughout the execution of the entire sketch. However, we can load and use as many shaders as we need. At each given time, one shader will be selected and running, but we can change the selected shader using the <em>shader()</em> function, and restore the default shaders with <em>resetShader()</em>. The following example combines all the shaders from the previous sections, so they can be enabled/disabled using the keyboard:</p>
 
 <table>
 <caption><b>Code listing 9.1:</b> All the shaders we have seen so far.</caption>
@@ -1321,7 +1341,7 @@ Let's start with point rendering. P3D represents points as either rectangles (wh
 &nbsp;&nbsp;}&nbsp;&nbsp;
 }
 
-<b>pointfrag.glsl:</b>
+<b>pointvert.glsl:</b>
 
 #define PROCESSING_POINT_SHADER
 
@@ -1343,7 +1363,7 @@ void main() {
   vertColor = color;
 }
 
-<b>pointvert.glsl:</b>
+<b>pointfrag.glsl:</b>
 
 #ifdef GL_ES
 precision mediump float;

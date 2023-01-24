@@ -15,32 +15,32 @@
 // This is a code fragment that shows how to use an ArrayList.
 // It won't compile because it's missing the Ball class.
 
-ArrayList balls;
+// Declaring the ArrayList, note the use of the syntax "&lt;Ball&gt;" to indicate
+// our intention to fill this ArrayList with Ball objects
+ArrayList&lt;Ball&gt; balls;
 
 void setup() {
   size(200, 200);
-  balls = new ArrayList();  // Create an empty ArrayList
+  balls = new ArrayList&lt;Ball&gt;();  // Create an empty ArrayList
   balls.add(new Ball(width/2, 0, 48));  // Start by adding one element
 }
 
 void draw() {
   background(255);
 
-  // With an array, we say balls.length. With an ArrayList, 
-  // we say balls.size(). The length of an ArrayList is dynamic. 
+  // With an array, we say balls.length. With an ArrayList,
+  // we say balls.size(). The length of an ArrayList is dynamic.
   // Notice how we are looping through the ArrayList backwards.
   // This is because we are deleting elements from the list.
-  for (int i = balls.size()-1; i >= 0; i--) { 
-    // An ArrayList doesn't know what it is storing,
-    // so we have to cast the object coming out.
-    Ball ball = (Ball) balls.get(i);
+  for (int i = balls.size()-1; i >= 0; i--) {
+    Ball ball = balls.get(i);
     ball.move();
     ball.display();
     if (ball.finished()) {
       // Items can be deleted with remove().
       balls.remove(i);
     }
-  }  
+  }
 }
 
 void mousePressed() {
@@ -52,7 +52,7 @@ void mousePressed() {
 
 
 <description><![CDATA[
-An <b>ArrayList</b> stores a variable number of objects. This is similar to making an array of objects, but with an <b>ArrayList</b>, items can be easily added and removed from the ArrayList and it is resized dynamically. This can be very convenient, but it's slower than making an array of objects when using many elements.<br />
+An <b>ArrayList</b> stores a variable number of objects. This is similar to making an array of objects, but with an <b>ArrayList</b>, items can be easily added and removed from the ArrayList and it is resized dynamically. This can be very convenient, but it's slower than making an array of objects when using many elements.  Note that for resizable lists of integers, floats, and Strings, you can use the Processing classes IntList, FloatList, and StringList.<br />
 <br />
 An ArrayList is a resizable-array implementation of the Java List interface. It has many methods used to control and search its contents. For example, the length of the <b>ArrayList</b> is returned by its <b>size()</b> method, which is an integer value for the total number of elements in the list. An element is added to an <b>ArrayList</b> with the <b>add()</b> method and is deleted with the <b>remove()</b> method. The <b>get()</b> method returns the element at the specified position in the list. (See the above example for context.)<br />
 <br />
@@ -62,18 +62,27 @@ For a list of the numerous <b>ArrayList</b> features, please read the <a href="h
 <syntax></syntax>
 
 <constructor>
-ArrayList()
-ArrayList(<c>initialCapacity</c>)
+ArrayList&amp;lt;Type&amp;gt;()
+ArrayList&amp;lt;Type&amp;gt;(<c>initialCapacity</c>)
 </constructor>
 
-<cparameter>
-<clabel>initialCapacity</clabel>
-<cdescription>int: defines the initial capacity of the list; it's empty by default</cdescription>
-</cparameter>
+<parameter>
+<label>Type</label>
+<description>Class Name: the data type for the objects to be placed in the ArrayList.</description>
+</parameter>
+
+<parameter>
+<label>initialCapacity</label>
+<description>int: defines the initial capacity of the list; it's empty by default</description>
+</parameter>
 
 <returns></returns>
 
-<related></related>
+<related>
+IntList
+FloatList
+StringList
+</related>
 
 <availability>1.0</availability>
 

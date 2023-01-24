@@ -16,9 +16,10 @@
 		<ex file="PointsLines.html">Points and Lines</ex>
 		<ex file="ShapePrimitives.html">Shape Primitives</ex>
 		<ex file="PieChart.html">Pie Chart</ex>
+		<ex file="RegularPolygon.html">Regular Polygon</ex>
+		<ex file="Star.html">Star</ex>
 		<ex file="TriangleStrip.html">Triangle Strip</ex>
 		<ex file="Bezier.html">Bezier</ex>
-		<ex file="BezierEllipse.html">Bezier Ellipse</ex>
 		<ex file="Primitives3D.html">3D Primitives</ex>
 	</cat>
 	<cat label="Data">
@@ -26,7 +27,6 @@
 		<ex file="IntegersFloats.html">Integers and Floats</ex>
 		<ex file="TrueFalse.html">True/False</ex>
 		<ex file="CharactersStrings.html">Characters and Strings</ex>
-		<ex file="DatatypeConversion.html">Datatype Conversion</ex>
 		<ex file="VariableScope.html">Variable Scope</ex>
 	</cat>
 	<cat label="Arrays">
@@ -50,14 +50,10 @@
 		<ex file="Pointillism.html">Pointillism</ex>
 	</cat>
 	<cat label="Shape">
-		<ex file="LoadDisplayShape.html">Load and Display Shape</ex>
+		<ex file="LoadDisplaySVG.html">Load and Display SVG</ex>
 		<ex file="DisableStyle.html">Disable Style</ex>
 		<ex file="ScaleShape.html">Scale Shape</ex>
 		<ex file="GetChild.html">Get Child</ex>
-	</cat>
-	<cat label="Typography">
-		<ex file="Letters.html">Letters</ex>
-		<ex file="Words.html">Words</ex>
 	</cat>
 	<cat label="Color">
 		<ex file="Hue.html">Hue</ex>

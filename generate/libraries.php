@@ -35,6 +35,7 @@ mkdir($lib_dir.'images', 0755);
 copydirr(CONTENTDIR."api_en/libraries/images", $lib_dir.'images');
 
 // copy over the file for the contributed libraries
+require_once('./contributions.php');
 copy(CONTENTDIR."static/libraries.html", $lib_dir.'libraries.html');
 
 // For each Library

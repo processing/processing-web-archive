@@ -12,8 +12,6 @@
 		<ex file="ContinuousLines.html">Continuous Lines</ex>
 		<ex file="Pattern.html">Pattern</ex>
 		<ex file="Pulses.html">Pulses</ex>
-		<ex file="Animator.html">Animator</ex>
-		<ex file="ScribblePlotter.html">Scribble Plotter</ex>
 	</cat>
 	<cat label="Animation">
 		<ex file="Sequential.html">Sequential</ex>
@@ -29,13 +27,8 @@
 		<ex file="Linear.html">Linear</ex>
 		<ex file="Bounce.html">Bounce</ex>
 		<ex file="BouncyBubbles.html">Bouncy Bubbles</ex>
-		<ex file="CircleCollision.html">Circle Collision</ex>
 		<ex file="MovingOnCurves.html">Moving On Curves</ex>
 		<ex file="Brownian.html">Brownian</ex>
-		<ex file="Puff.html">Puff</ex>
-		<ex file="Reflection1.html">Reflection 1</ex>
-		<ex file="Reflection2.html">Reflection 2</ex>
-		<ex file="CubesWithinCube.html">Cubes Within Cube</ex>
 	</cat>
 	<cat label="Interaction">
 		<ex file="Tickle.html">Tickle</ex>
@@ -48,7 +41,6 @@
 	</cat>
 	<cat label="Image Processing">
 		<ex file="PixelArray.html">Pixel Array</ex>
-		<ex file="Histogram.html">Histogram</ex>
 		<ex file="Brightness.html">Brightness</ex>
 		<ex file="Blur.html">Blur</ex>
 		<ex file="EdgeDetection.html">Edge Detection</ex>
@@ -70,16 +62,14 @@
 		<ex file="Flocking.html">Flocking</ex>
 		<ex file="SimpleParticleSystem.html">Simple Particle System</ex>
 		<ex file="MultipleParticleSystems.html">Multiple Particle Systems</ex>
-		<ex file="SmokeParticleSystem.html">Smoke Particle System</ex>
 	</cat>
 	<cat label="Fractals and L-Systems">
-		<ex file="Koch.html">Koch</ex>
 		<ex file="Mandelbrot.html">Mandelbrot</ex>
 		<ex file="Tree.html">Tree</ex>
 	</cat>
 		<cat label="Cellular Automata">
 		<ex file="Wolfram.html">Wolframs's 1D CA</ex>
-		<ex file="Conway.html">Conway's Game of Life</ex>
+		<ex file="GameOfLife.html">Conway's Game of Life</ex>
 		<ex file="Spore1.html">Spore 1</ex>
 		<ex file="Spore2.html">Spore 2</ex>
 	</cat>

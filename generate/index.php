@@ -23,16 +23,36 @@ function showloading()
     </script>
     
     <style type="text/css">
-    body { margin: 0; font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 12px; }
+    body { margin: 0 auto; font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 12px; }
 
-h1 { margin: 0; width: 750px; background: #000; }
+h1 { margin: 0; width: 900px; background: #000; }
 
-#body { margin-left: 60px; width: 690px; }
+#header {
+	width: 900px;
+	height: 106px;
+	margin-bottom: 7px;
+	overflow: hidden;
+	background: #0c2033 url(../img/processing-web.png) center center no-repeat;
+	background-size: 900px 106px;	
+	position:relative;
+}
+
+#header .processing-logo {
+	width: 206px;
+	height: 38px;
+	margin: 20px 0 0 30px;
+	background: transparent url(../img/processing-logo.png) center center no-repeat;
+	background-image: -webkit-linear-gradient(transparent, transparent), url(../img/processing-logo.svg);
+	background-image: -moz-linear-gradient(transparent, transparent), url(../img/processing-logo.svg);
+	background-image: linear-gradient(transparent, transparent), url(../img/processing-logo.svg);
+}
+
+#body { margin-left: 34px; width: 900px; }
 
 ul, li { margin: 0; padding: 0; list-style: none; }
 li { margin-bottom: 1em; }
 
-#status-container { display: none; background: #efefff; border: 1px solid #c8c8ff; padding: 5px; width: 95%; overflow-x: hidden; }
+#status-container { display: none; background: #efefff; border: 1px solid #c8c8ff; padding: 5px; width: 820px; overflow-x: hidden; margin-bottom: 34px; }
 #status-container h3 { margin: 0; }
 #status { font-size: 12px; }
 
@@ -41,7 +61,9 @@ li { margin-bottom: 1em; }
 </head>
 
 <body>
-<h1><img src="../img/processing_cover.gif" alt="Processing" /></h1>
+	<div id="header">
+		<div class="processing-logo" alt="Processing cover"></div>
+	</div>
 
 <div id="body">
 
@@ -56,8 +78,9 @@ li { margin-bottom: 1em; }
 	<br />
 	Elie: <a href="#" onclick="remote_link('libraries.php', 'lang=en'); return false;">Libraries</a> \ <a href="#" onclick="remote_link('tools.php', 'lang=en'); return false;">Tools</a><br />
 	<br />
-	Casey: <a href="#" onclick="remote_link('cover.php');return false;">Cover</a> \ <a href="#" onclick="remote_link('environment.php'); return false;">Environment</a> \ 
-	<a href="#" onclick="remote_link('examples.php'); return false;">Examples</a> \ <a href="#" onclick="remote_link('about.php');return false;">About</a> \ 
+	Casey: <a href="#" onclick="remote_link('cover.php');return false;">Cover</a> \ 
+	<a href="#" onclick="remote_link('environment.php'); return false;">Environment</a> \ 
+	<a href="#" onclick="remote_link('examples.php'); return false;">Examples</a> \ 
 	<a href="#" onclick="remote_link('staticpages.php'); return false;">Static Pages (Copyright, Books, Shop)</a>
 </p>
 	

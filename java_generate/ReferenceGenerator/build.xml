@@ -1,0 +1,30 @@
+<project name="Procesing Web Reference Generator" default="compile" basedir=".">
+    <description>
+        Build file for the Processing documentation generator.
+        Creates the ProcessingWeblet.class, which is used by javadoc to structure
+        the parsed Processing source code into the website reference.
+    </description>
+  <!-- set global properties for this build -->
+  <property name="src" location="src"/>
+  <property name="build" location="bin"/>
+
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${build}"/>
+  </target>
+
+  <target name="compile" depends="clean,init"
+        description="compile the source " >
+    <!-- Compile the java code from ${src} into ${build} -->
+    <!-- Note that your environment JAVA_HOME now matters for building -->
+    <javac srcdir="${src}" destdir="${build}" source="1.6" target="1.6" includeantruntime="true"/>
+  </target>
+
+  <target name="clean"
+        description="clean up" >
+    <!-- Delete the ${build} and ${dist} directory trees -->
+    <delete dir="${build}"/>
+  </target>
+</project>

@@ -1,6 +1,6 @@
 > 📝 This is an archive. See the [processing-website](https://github.com/processing/processing-website/) repository for the current source of the processing.org website.
 
-Processing Web Site
+Processing web site, Examples, and Reference
 ==========
 
 ~~This is the official source code for the [processing.org Web site](http://processing.org), including the examples and the reference.~~

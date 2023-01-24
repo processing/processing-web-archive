@@ -1,6 +1,8 @@
 #!/bin/sh
 
-
+# PROCESSING_SRC_PATH=./test
+PROCESSING_SRC_PATH=../../../processing/core/src
+PROCESSING_LIB_PATH=../../../processing/java/libraries
 # GENERATE REFERENCE ENTRIES AND INDEX THROUGH JAVADOC - BY DAVID WICKS
 
 #remove everything old
@@ -23,14 +25,15 @@ javadoc -doclet ProcessingWeblet \
 	-corepackage processing.event \
 	-corepackage processing.opengl \
 	-rootclass PConstants \
-	-noisy \
-	../../../processing/java/libraries/net/src/processing/net/*.java \
-	../../../processing/java/libraries/serial/src/processing/serial/*.java \
-	../../../processing/java/libraries/video/src/processing/video/*.java \
-	../../../processing/core/src/processing/core/*.java \
-	../../../processing/core/src/processing/data/*.java \
-	../../../processing/core/src/processing/event/*.java \
-	../../../processing/core/src/processing/opengl/*.java
+	$PROCESSING_SRC_PATH/processing/core/*.java \
+	$PROCESSING_SRC_PATH/processing/data/*.java \
+	$PROCESSING_SRC_PATH/processing/event/*.java \
+	$PROCESSING_SRC_PATH/processing/opengl/*.java \
+	$PROCESSING_LIB_PATH/net/src/processing/net/*.java \
+	$PROCESSING_LIB_PATH/serial/src/processing/serial/*.java \
+	$PROCESSING_LIB_PATH/../../../processing-video/src/processing/video/*.java \
+	-noisy
+	# ./test/seetags.java \
 
 
 # COPY IMAGES FROM CONTENT FOLDER TO CORRECT FOLDERS
@@ -46,6 +49,12 @@ cp -R ../../content/api_media/*.png ../../reference/images/
 # manage local reference
 cp -R ../../css	 ../../distribution/
 cp -R ../../javascript	 ../../distribution/
+rm -rf ../../distribution/css/fonts/TheSerif_B4_Bold_.eot
+rm -rf ../../distribution/css/fonts/TheSerif_B4_Bold_.woff
+rm -rf ../../distribution/css/fonts/TheSerif_B4_Italic.eot
+rm -rf ../../distribution/css/fonts/TheSerif_B4_Italic.woff
+rm -rf ../../distribution/css/fonts/TheSerif_B4_Plain_.eot
+rm -rf ../../distribution/css/fonts/TheSerif_B4_Plain_.woff
 mkdir -p ../../distribution/images
 cp -R ../../content/api_media/*.jpg ../../distribution/images/
 cp -R ../../content/api_media/*.gif ../../distribution/images/
@@ -61,7 +70,11 @@ mkdir -p ../../distribution/img
 chmod 755 ../../distribution/img
 mkdir -p ../../distribution/img/about/
 cp ../../favicon.ico ../../distribution/img/
-cp ../../img/processing.gif ../../distribution/img/
+cp ../../img/processing-web.png ../../distribution/img/
+cp ../../img/processing-logo.svg ../../distribution/img/
+cp ../../img/processing-logo.png ../../distribution/img/
+cp ../../img/search.png ../../distribution/img/
+cp ../../img/search.svg ../../distribution/img/
 cp ../../img/about/people-header.gif ../../distribution/img/about/
 cp ../../content/api_en/images/header.gif ../../distribution/img/
 
